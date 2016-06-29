@@ -215,10 +215,13 @@ public class NetworkInit {
       // The ips were already sorted in priority based way, so use it
       // There is only a single site local address, use it
       if( siteLocalIps.size() == 1 ) {
+        Log.info("XXX: Site local address used");
         local = siteLocalIps.get(0);
       } else if (linkLocalIps.size() > 0) { // Always use link local address on IPv6
+        Log.info("XXX: Link local address used");
         local = linkLocalIps.get(0);
       } else {
+        Log.info("XXX: trying to guess the address");
         local = guessInetAddress(siteLocalIps);
       }
     }
